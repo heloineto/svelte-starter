@@ -17,7 +17,9 @@ Uses:
     cd my-app
     ```
 
-1. Install pnpm. ([Instructions here](https://pnpm.io/installation))
+1. Install pnpm. [Instructions here](https://pnpm.io/installation)
+
+1. Install Storybook. [Instructions here](https://storybook.js.org/docs/svelte/get-started/install)
 
 1. Prettier configuration (`.prettierrc`)
 
