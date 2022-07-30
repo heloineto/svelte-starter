@@ -9,7 +9,7 @@ module.exports = {
 	core: {
 		builder: "@storybook/builder-vite",
 	},
-	// This doesn't work because `require``is not ESM
+	// This doesn't work because `require` is not ESM
 	// "svelteOptions": {
 	//   "preprocess": require("../svelte.config.js").preprocess
 	// },

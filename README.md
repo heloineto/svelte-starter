@@ -9,19 +9,19 @@ Uses:
 - [Vite](https://vitejs.dev/)
 - [Storybook](https://storybook.js.org/)
 
-# How it is created
+# How to re-create it
 
-1. Run npm create, as shown in the [docs](https://kit.svelte.dev/docs/introduction#getting-started)
+1. Run npm create, as shown in the [SvelteKit docs](https://kit.svelte.dev/docs/introduction#getting-started)
     ```
     npm create svelte@latest my-app
     cd my-app
     ```
 
-1. Install pnpm. [Instructions here](https://pnpm.io/installation)
+2. Install Storybook. [Instructions here](https://storybook.js.org/docs/svelte/get-started/install)
 
-1. Install Storybook. [Instructions here](https://storybook.js.org/docs/svelte/get-started/install)
+1. Install Tailwind. [Instructions here](https://tailwindcss.com/docs/guides/sveltekit)
 
-1. Prettier configuration (`.prettierrc`)
+3. Prettier configuration (`.prettierrc`)
 
     Trailing commas improve developer experience. [See why](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas)
     ```js
@@ -33,7 +33,7 @@ Uses:
     "singleQuote": false
     ```
 
-1. ESLint configuration (`.eslintrc.cjs`)
+4. ESLint configuration (`.eslintrc.cjs`)
 
     Extend these extra rulesets:
     - [plugin:@typescript-eslint/recommended-requiring-type-checking](https://typescript-eslint.io/docs/linting/configs/#recommended-requiring-type-checking)
