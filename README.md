@@ -1,6 +1,7 @@
 # Svelte Starter
 
 Uses:
+
 - [SvelteKit](https://kit.svelte.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
@@ -12,38 +13,48 @@ Uses:
 # How to re-create it
 
 1. Run npm create, as shown in the [SvelteKit docs](https://kit.svelte.dev/docs/introduction#getting-started)
-    ```
-    npm create svelte@latest my-app
-    cd my-app
-    ```
+
+   ```
+   npm create svelte@latest my-app
+   cd my-app
+   ```
 
 2. Install Storybook. [Instructions here](https://storybook.js.org/docs/svelte/get-started/install)
 
-1. Install Tailwind. [Instructions here](https://tailwindcss.com/docs/guides/sveltekit)
+3. Install Tailwind. [Instructions here](https://tailwindcss.com/docs/guides/sveltekit)
 
-3. Prettier configuration (`.prettierrc`)
+4. Prettier configuration (`.prettierrc`)
 
-    Trailing commas improve developer experience. [See why](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas)
-    ```js
-    "trailingComma": "es5"
-    ```
+   Trailing commas improve developer experience. [See why](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas)
 
-    Use double quotes to be consistent with HTML
-    ```js
-    "singleQuote": false
-    ```
+   ```js
+   "trailingComma": "es5"
+   ```
 
-4. ESLint configuration (`.eslintrc.cjs`)
+   Use double quotes to be consistent with HTML
 
-    Extend these extra rulesets:
-    - [plugin:@typescript-eslint/recommended-requiring-type-checking](https://typescript-eslint.io/docs/linting/configs/#recommended-requiring-type-checking)
-    - [plugin:@typescript-eslint/strict](https://typescript-eslint.io/docs/linting/configs/#strict)
+   ```js
+   "singleQuote": false
+   ```
 
+5. ESLint configuration (`.eslintrc.cjs`)
 
-    Add these rules:
-    ```js
-    rules: {
-        "@typescript-eslint/consistent-type-imports": "error",
-        "@typescript-eslint/sort-type-union-intersection-members": "error",
-    }
-    ```
+   Extend these extra rulesets:
+
+   - [plugin:@typescript-eslint/recommended-requiring-type-checking](https://typescript-eslint.io/docs/linting/configs/#recommended-requiring-type-checking)
+   - [plugin:@typescript-eslint/strict](https://typescript-eslint.io/docs/linting/configs/#strict)
+
+   Add these rules:
+
+   ```js
+   rules: {
+       "@typescript-eslint/consistent-type-imports": "error",
+       "@typescript-eslint/sort-type-union-intersection-members": "error",
+   }
+   ```
+
+6. Add Husky and lint-staged
+
+7. Add vscode eslint on save and recommended extensions
+
+8. Add automatic tailwind class sorting with prettier. [Instructions here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
