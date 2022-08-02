@@ -58,3 +58,6 @@ Uses:
 7. Add vscode eslint on save and recommended extensions
 
 8. Add automatic tailwind class sorting with prettier. [Instructions here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+
+9. Add `*.html` to `.eslintignore`, since the parser `@typescript-eslint/parser` does not support it.
+   This might be the best solution for simple use cases, where theres only one `app.html` and `.html` files aren't used often.
