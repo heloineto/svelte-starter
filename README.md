@@ -55,9 +55,19 @@ Uses:
 
 6. Add Husky and lint-staged
 
-7. Add vscode eslint on save and recommended extensions
+7. Add vscode eslint on save and recommended extensions (`.vscode/extensions.json`)
 
-8. Add automatic tailwind class sorting with prettier. [Instructions here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+8. Add vscode eslint on settings (`.vscode/settings.json`)
 
-9. Add `*.html` to `.eslintignore`, since the parser `@typescript-eslint/parser` does not support it.
-   This might be the best solution for simple use cases, where theres only one `app.html` and `.html` files aren't used often.
+9. Add automatic tailwind class sorting with prettier. [Instructions here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+
+10. Add `*.html` to `.eslintignore`, since the parser `@typescript-eslint/parser` does not support it.
+    This might be the best solution for simple use cases, where theres only one `app.html` and `.html` files aren't used often.
+
+11. Edit configuration files:
+
+- Remove `.eslintignore` and put its contents on `.eslintrc.cjs` [ignorePatterns](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code) to make it more concise
+
+- Change `.prettierrc` to `.prettierrc.cjs` for more consistency between configuration files
+
+-

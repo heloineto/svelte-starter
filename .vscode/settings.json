@@ -1,16 +1,14 @@
 {
-  "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.fixAll",
-    "source.organizeImports"
-  ],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.foldingImportsByDefault": true,
-  "editor.formatOnSave": true,
-  "cSpell.words": [
-    "pnpm",
-    "preinstall",
-    "rulesets",
-    "sveltejs"
-  ]
+	"editor.codeActionsOnSave": [
+		"source.addMissingImports",
+		"source.fixAll",
+		"source.organizeImports"
+	],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.foldingImportsByDefault": true,
+	"editor.formatOnSave": true,
+	"cSpell.words": ["pnpm", "preinstall", "rulesets", "sveltejs"],
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
