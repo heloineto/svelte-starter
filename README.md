@@ -6,9 +6,9 @@ Uses:
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-- [pnpm](https://pnpm.io/)
 - [Vite](https://vitejs.dev/)
 - [Storybook](https://storybook.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 # How to re-create it
 
@@ -44,7 +44,7 @@ Uses:
    - [plugin:@typescript-eslint/recommended-requiring-type-checking](https://typescript-eslint.io/docs/linting/configs/#recommended-requiring-type-checking)
    - [plugin:@typescript-eslint/strict](https://typescript-eslint.io/docs/linting/configs/#strict)
 
-   Add these rules:
+   Add these extra rules:
 
    ```js
    rules: {
@@ -70,4 +70,22 @@ Uses:
 
 - Change `.prettierrc` to `.prettierrc.cjs` for more consistency between configuration files
 
--
+- In `.eslintrc.cjs`
+
+  ```js
+  parserOptions: {
+  	sourceType: "module",
+  	ecmaVersion: 2020,
+  +	project: ["tsconfig.json"],
+  },
+  ```
+
+  - In `tsconfig.json`
+
+  ```json
+  {
+      "extends": "./.svelte-kit/tsconfig.json",
+   +  "include": ["."],
+   ...
+  }
+  ```
