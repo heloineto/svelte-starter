@@ -89,3 +89,6 @@ Uses:
    ...
   }
   ```
+
+1. Add utilities like
+   - `src/lib/utils/classes.ts`
