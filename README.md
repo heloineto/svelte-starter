@@ -133,3 +133,12 @@ Tech Stack:
     	]
     }
     ```
+
+1.  Add common utils
+
+    ```
+    src/
+    ├ lib/
+    ├ utils/
+    │ └ classes.ts
+    ```
