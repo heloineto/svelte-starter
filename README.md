@@ -1,94 +1,135 @@
 # Svelte Starter
 
-Uses:
+Tech Stack:
 
-- [SvelteKit](https://kit.svelte.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Vite](https://vitejs.dev/)
-- [Storybook](https://storybook.js.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+[SvelteKit](https://kit.svelte.dev/) | [TypeScript](https://www.typescriptlang.org/) | [ESLint](https://eslint.org/) | [Prettier](https://prettier.io/) | [Vite](https://vitejs.dev/) | [Playwright](https://storybook.js.org/) | [Tailwind CSS](https://tailwindcss.com/)
 
-# How to re-create it
+## How to re-create it
 
-1. Run npm create, as shown in the [SvelteKit docs](https://kit.svelte.dev/docs/introduction#getting-started)
+1.  Run npm create, as shown in the [SvelteKit docs](https://kit.svelte.dev/docs/introduction#getting-started)
 
-   ```
-   npm create svelte@latest my-app
-   cd my-app
-   ```
+    ```
+    npm create svelte@latest svelte-starter
+    cd svelte-starter
+    npm install
+    npm run dev
+    ```
 
-2. Install Storybook. [Instructions here](https://storybook.js.org/docs/svelte/get-started/install)
+    And answer the questions as follows:
 
-3. Install Tailwind. [Instructions here](https://tailwindcss.com/docs/guides/sveltekit)
+    ```
+     ? Which Svelte app template?
+     >   Skeleton
 
-4. Prettier configuration (`.prettierrc`)
+     ? Add type checking with TypeScript?
+     >   Yes, using TypeScript syntax
 
-   Trailing commas improve developer experience. [See why](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas)
+     Add ESLint for code linting?
+     >   Yes
 
-   ```js
-   "trailingComma": "es5"
-   ```
+     Add Prettier for code formatting?
+     >   Yes
 
-   Use double quotes to be consistent with HTML
+     Add Playwright for browser testing?
+     >   Yes
+    ```
 
-   ```js
-   "singleQuote": false
-   ```
+1.  Install Tailwind. [Instructions here](https://tailwindcss.com/docs/guides/sveltekit)
 
-5. ESLint configuration (`.eslintrc.cjs`)
+    - Remember to use `pnpm` instead of `npm`
 
-   Extend these extra rulesets:
+    - Add automatic tailwind class sorting with prettier. [Instructions here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
 
-   - [plugin:@typescript-eslint/recommended-requiring-type-checking](https://typescript-eslint.io/docs/linting/configs/#recommended-requiring-type-checking)
-   - [plugin:@typescript-eslint/strict](https://typescript-eslint.io/docs/linting/configs/#strict)
+      ```
+      pnpm install -D prettier prettier-plugin-tailwindcss
+      ```
 
-   Add these extra rules:
+1.  Prettier configuration (`.prettierrc`)
 
-   ```js
-   rules: {
-       "@typescript-eslint/consistent-type-imports": "error",
-       "@typescript-eslint/sort-type-union-intersection-members": "error",
-   }
-   ```
+    - Trailing commas improve developer experience. [See why](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas)
 
-6. Add Husky and lint-staged
+    - Use double quotes to be consistent with HTML
 
-7. Add vscode eslint on save and recommended extensions (`.vscode/extensions.json`)
+    ```js
+    {
+       ...
+       "trailingComma": "es5",
+       "singleQuote": false
+    }
+    ```
 
-8. Add vscode eslint on settings (`.vscode/settings.json`)
+1.  ESLint configuration
 
-9. Add automatic tailwind class sorting with prettier. [Instructions here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+    - Extend these extra rulesets
+    - Add `parserOptions.project` and `ignorePatterns` to fix some bugs
 
-10. Add `*.html` to `.eslintignore`, since the parser `@typescript-eslint/parser` does not support it.
-    This might be the best solution for simple use cases, where theres only one `app.html` and `.html` files aren't used often.
+      ```js
+      // .eslintrc.cjs
 
-11. Edit configuration files:
+      module.exports = {
+         ...
+         extends: [
+         "eslint:recommended",
+         "plugin:@typescript-eslint/recommended",
+         "plugin:@typescript-eslint/strict",
+         "plugin:@typescript-eslint/recommended-requiring-type-checking",
+         "prettier",
+         ],
+         parserOptions: {
+            sourceType: "module",
+            ecmaVersion: 2020,
+            project: "./tsconfig.json",
+         },
+         ignorePatterns: ["*.cjs", "playwright.config.ts", "svelte.config.js"],
+      }
+      ```
 
-- Remove `.eslintignore` and put its contents on `.eslintrc.cjs` [ignorePatterns](https://eslint.org/docs/latest/user-guide/configuring/ignoring-code) to make it more concise
+1.  Add Husky and lint-staged
 
-- Change `.prettierrc` to `.prettierrc.cjs` for more consistency between configuration files
+    - Instructions to install husky [here](https://typicode.github.io/husky/#/?id=install)
 
-- In `.eslintrc.cjs`
+    ```bash
+    pnpm i -D lint-staged husky
+    pnpm dlx husky install
+    pnpm dlx husky add .husky/pre-commit "pnpm dlx lint-staged"
+    ```
 
-  ```js
-  parserOptions: {
-  	sourceType: "module",
-  	ecmaVersion: 2020,
-  +	project: ["tsconfig.json"],
-  },
-  ```
+    - Add lint-staged configuration
 
-  - In `tsconfig.json`
+    ```json
+    // .lintstagedrc.json
 
-  ```json
-  {
-      "extends": "./.svelte-kit/tsconfig.json",
-   +  "include": ["."],
-   ...
-  }
-  ```
+    {
+    	"**/*.{html,js,svelte,ts}": ["pnpm lint:fix", "pnpm lint", "pnpm check"]
+    }
+    ```
 
-1. Add utilities like
-   - `src/lib/utils/classes.ts`
+1.  Add vscode settings & extensions
+
+    ```json
+    // .vscode/settings.json
+
+    {
+    	"editor.codeActionsOnSave": [
+    		"source.addMissingImports",
+    		"source.fixAll",
+    		"source.organizeImports"
+    	],
+    	"editor.defaultFormatter": "esbenp.prettier-vscode",
+    	"editor.foldingImportsByDefault": true,
+    	"editor.formatOnSave": true
+    }
+    ```
+
+    ```json
+    // .vscode/extensions.json
+
+    {
+    	"recommendations": [
+    		"svelte.svelte-vscode",
+    		"bradlc.vscode-tailwindcss",
+    		"dbaeumer.vscode-eslint",
+    		"esbenp.prettier-vscode"
+    	]
+    }
+    ```

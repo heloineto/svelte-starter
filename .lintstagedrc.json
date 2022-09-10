@@ -1,0 +1,3 @@
+{
+	"**/*.{html,js,svelte,ts}": ["pnpm lint:fix", "pnpm lint", "pnpm check"]
+}
